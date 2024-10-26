@@ -1,0 +1,122 @@
+sass scss/styles.scss css/styles.css
+
+
+/* Contenedor de Grid */
+.grid-contenedor-padre {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-gap: 20px;
+}
+
+.grid-item-hijo {
+    padding: 20px;
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+/* Flexbox para navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+    .grid-contenedor-padre {
+        grid-template-areas:
+            "header"
+            "main"
+            "nav"
+            "footer";
+    }
+
+    /* Ajuste de navbar para móvil */
+    .navbar ul {
+        flex-direction: column;
+    }
+}
+
+/* Box Model para ajustar márgenes y paddings */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.grid-item-hijo {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: auto;
+    border: none;
+    padding: 10px;
+}
+
+/* Ajuste para formulario de contacto */
+#contact {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Estilo del banner principal */
+#home {
+    background-image: url('../images/Fondo.jpg'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+#home .overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+}
+
+#home h1 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+#home p {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Botón del banner */
+.btn-lg {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #f97316;
+    border-radius: 5px;
+}
