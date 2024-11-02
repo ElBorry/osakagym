@@ -1,0 +1,68 @@
+#gallery {
+    background-color: #000;
+    color: #fff;
+    padding: 3rem 0;
+    display: flex;
+        width: 100%; /* Ocupa el 100% del ancho disponible */
+    max-width: 1200px; /* Establece un ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centra la sección si el ancho es menor que el 100% */
+
+
+    
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #f97316;
+    }
+
+    /* Limitar el ancho máximo del contenedor del carrusel */
+    .carousel-inner {
+        max-width: 340vh; // Ajusta el tamaño máximo del carrusel
+        margin: 0 auto;
+    }
+
+    /* Contenedor de la galería */
+    .gallery-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        max-width: 100%; // Limita el ancho máximo de la galería
+        margin: 0 auto;
+    }
+
+    /* Ajuste de tamaño de las imágenes */
+    .carousel-image {
+        width: 340px; // Ajusta el tamaño de las imágenes
+        height: auto;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Efecto de expansión al pasar el cursor */
+    .carousel-image:hover {
+        transform: scale(1.2); // Expande la imagen
+        z-index: 1;
+    }
+
+    /* Contrae las demás imágenes al pasar el cursor sobre una */
+    .gallery-container:hover .carousel-image:not(:hover) {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+
+    /* Configuración responsive */
+    @media (max-width: 768px) {
+        .gallery-container {
+            flex-direction: column;
+        }
+
+        .carousel-image {
+            width: 90%; // Ajusta el tamaño en móviles
+            margin: 0 auto 10px;
+        }
+    }
+}

@@ -1,122 +1,203 @@
-sass scss/styles.scss css/styles.css
-
+@charset "UTF-8";
+/* Box Model */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
 
 /* Contenedor de Grid */
 .grid-contenedor-padre {
-    display: grid;
-    grid-template-areas:
-        "header"
-        "nav"
-        "main"
-        "footer";
-    grid-gap: 20px;
+  display: grid;
+  grid-template-areas: "header" "nav" "main" "footer";
+  grid-gap: 20px;
 }
 
 .grid-item-hijo {
-    padding: 20px;
-}
-
-header {
-    grid-area: header;
-}
-
-nav {
-    grid-area: nav;
-}
-
-main {
-    grid-area: main;
-}
-
-footer {
-    grid-area: footer;
-}
-
-/* Flexbox para navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 /* Media queries para móviles */
 @media (max-width: 768px) {
-    .grid-contenedor-padre {
-        grid-template-areas:
-            "header"
-            "main"
-            "nav"
-            "footer";
-    }
-
-    /* Ajuste de navbar para móvil */
-    .navbar ul {
-        flex-direction: column;
-    }
+  .grid-contenedor-padre {
+    grid-template-areas: "header" "main" "nav" "footer";
+  }
 }
-
-/* Box Model para ajustar márgenes y paddings */
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.grid-item-hijo {
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
 iframe {
-    width: 100%;
-    height: auto;
-    border: none;
-    padding: 10px;
+  width: 100%;
+  height: 100vh; /* Ajusta la altura según sea necesario */
+  border: none;
+  display: block;
 }
 
-/* Ajuste para formulario de contacto */
-#contact {
-    margin-top: 40px;
-    margin-bottom: 40px;
+#mainNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 1rem;
+  color: #fff;
+  z-index: 10;
+  /* Flexbox para navbar */
+}
+#mainNav .navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #f97316;
+}
+#mainNav .nav-item a {
+  color: #fff;
+  text-decoration: none;
+}
+#mainNav .nav-item a:hover {
+  color: #f97316;
+}
+#mainNav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+@media (max-width: 768px) {
+  #mainNav ul {
+    flex-direction: column;
+  }
 }
 
-/* Estilo del banner principal */
+.navbar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
 #home {
-    background-image: url('../images/Fondo.jpg'); /* Asegúrate de que la ruta sea correcta */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
+  background-image: url("../images/Fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
 }
 
 #home .overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Superposición oscura */
-    padding: 40px;
-    border-radius: 10px;
-    color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #home h1 {
-    font-size: 3rem;
-    color: #fff;
+  font-size: 3rem;
+  color: #fff;
+  margin-top: 10px;
 }
 
 #home p {
-    font-size: 1.5rem;
-    color: #fff;
-    margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 /* Botón del banner */
 .btn-lg {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: white;
-    background-color: #f97316;
-    border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #f97316;
+  border-radius: 5px;
 }
+
+/* Estilos específicos para el logo */
+.logo {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+#gallery {
+  background-color: #000;
+  color: #fff;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150%;
+  max-width: 1200px;
+  height: 80vh; /* Ocupa el 80% de la altura de la ventana */
+  min-height: 500px; /* Altura mínima para asegurar buena visibilidad */
+  margin: 0 auto;
+  /* Limitar el ancho máximo del contenedor del carrusel */
+  /* Contenedor de la galería */
+  /* Ajuste de tamaño de las imágenes */
+  /* Efecto de expansión al pasar el cursor */
+  /* Contrae las demás imágenes al pasar el cursor sobre una */
+  /* Configuración responsive */
+}
+#gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #f97316;
+}
+#gallery .carousel-inner {
+  max-width: 100%; /* Ancho completo del contenedor principal */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+#gallery .gallery-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+#gallery .carousel-image {
+  width: 250px; /* Ajusta el tamaño de las imágenes */
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+#gallery .carousel-image:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+#gallery .gallery-container:hover .carousel-image:not(:hover) {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  #gallery .gallery-container {
+    flex-direction: column;
+  }
+  #gallery .carousel-image {
+    width: 90%;
+    margin: 0 auto 10px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

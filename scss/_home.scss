@@ -1,0 +1,52 @@
+// home.scss
+
+#home {
+    background-image: url('../images/Fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+#home .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    color: $white-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home h1 {
+    font-size: 3rem;
+    color: $white-color;
+    margin-top: 10px;
+}
+
+#home p {
+    font-size: 1.5rem;
+    color: $white-color;
+    margin-bottom: 20px;
+}
+
+/* Botón del banner */
+.btn-lg {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: $white-color;
+    background-color: $primary-color;
+    border-radius: 5px;
+}
+
+/* Estilos específicos para el logo */
+.logo {
+    width: 250px;  // Ajusta el tamaño según tu preferencia
+    height: auto;
+    margin-bottom: 20px;  // Espacio entre el logo y el texto
+}

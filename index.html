@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Osaka Gym</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
+    <header>
+        <!-- Navbar con TailwindCSS (oculto al inicio) -->
+        <nav id="mainNav" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="display: none;">
+            <div class="container">
+                <a href="#home" class="navbar-brand">
+                    <img src="images/logo.png" alt="Osaka Gym" class="navbar-logo">
+                    Osaka Gym
+                </a>
+                <button class="navbar-toggler" id="navToggle" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a href="#gallery" class="nav-link">Galería</a></li>
+                        <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonios</a></li>
+                        <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
+                        <li class="nav-item"><a href="#rutinas" class="nav-link">Rutinas</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Banner principal -->
-    <section id="home">
-        <div class="overlay">
-            <img src="images/logo.png" alt="Osaka Gym" class="w-100 h-100">
-            <p>"Cuando tus piernas no puedan más… tu corazón hará el resto!"</p>
-            
+    <main>
+        <!-- Banner principal -->
+        <section id="home">
+            <div class="overlay">
+                <img src="images/logo.png" alt="Osaka Gym" class="logo">
+
+                <p>"Cuando tus piernas no puedan más… tu corazón hará el resto!"</p>
+
+            </div>
+        </section>
+
+
+        <!-- Secciones cargadas por iframe -->
+        <iframe src="sections/gallery.html" classname="gallery-container" frameborder="0"></iframe>
+        <iframe src="sections/testimonials.html" frameborder="0"></iframe>
+        <iframe src="sections/contact.html" frameborder="0"></iframe>
+        <iframe src="sections/rutina.html" frameborder="0"></iframe>
+
+        <!-- Scripts -->
+        <script src="./js/scripts.js"></script> <!-- Archivo para los scripts -->
+    </main>
+    <footer>
+        <div class="text-center py-4 bg-gray-800 text-white">
+            <p>© 2024 Osaka Gym - Todos los derechos reservados</p>
         </div>
-    </section>
+    </footer>
 
-    <!-- Navbar con TailwindCSS (oculto al inicio) -->
-    <nav id="mainNav" class="w-full fixed top-0 bg-gray-800 text-white p-4 hidden z-50">
-        <div class="container mx-auto flex items-center justify-between">
-            <a href="#home" class="flex items-center">
-                <img src="images/logo.png" alt="Osaka Gym" class="w-10 h-10">
-                <span class="ml-2 font-bold text-lg">Osaka Gym</span>
-            </a>
-            <button class="text-white md:hidden" id="navToggle">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-            <ul class="hidden md:flex space-x-4">
-                <li><a href="#gallery" class="hover:text-yellow-500">Galería</a></li>
-                <li><a href="#testimonials" class="hover:text-yellow-500">Testimonios</a></li>
-                <li><a href="#contact" class="hover:text-yellow-500">Contacto</a></li>
-                <li><a href="#rutinas" class="hover:text-yellow-500">Rutinas</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Secciones cargadas por iframe -->
-    <iframe src="sections/gallery.html" frameborder="0"></iframe>
-    <iframe src="sections/testimonials.html" frameborder="0"></iframe>
-    <iframe src="sections/contact.html" frameborder="0"></iframe>
-    <iframe src="sections/rutina.html" frameborder="0"></iframe>
-
-    <!-- Scripts -->
-    <script src="js/scripts.js"></script> <!-- Archivo para los scripts -->
 </body>
+
 </html>

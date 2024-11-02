@@ -1,0 +1,9 @@
+// footer.scss
+
+footer {
+    grid-area: footer;
+    background-color: $secondary-color;
+    color: $white-color;
+    text-align: center;
+    padding: 1rem;
+}
