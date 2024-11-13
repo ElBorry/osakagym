@@ -1,6 +1,6 @@
 // home.scss
 
-#home {
+#Principal{
     background-image: url('../images/Fondo.jpg');
     background-size: cover;
     background-position: center;
@@ -13,7 +13,7 @@
     position: relative;
 }
 
-#home .overlay {
+#Principal.overlay {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 40px;
     border-radius: 10px;
@@ -49,4 +49,11 @@
     width: 250px;  // Ajusta el tamaño según tu preferencia
     height: auto;
     margin-bottom: 20px;  // Espacio entre el logo y el texto
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }

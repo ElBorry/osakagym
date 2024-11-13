@@ -7,7 +7,7 @@
     <title>Osaka Gym</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css">
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -16,11 +16,12 @@
         <!-- Navbar con TailwindCSS (oculto al inicio) -->
         <nav id="mainNav" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="display: none;">
             <div class="container">
-                <a href="#home" class="navbar-brand">
+                <a href="#home"" class=" navbar-brand">
                     <img src="images/logo.png" alt="Osaka Gym" class="navbar-logo">
                     Osaka Gym
                 </a>
-                <button class="navbar-toggler" id="navToggle" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" id="navToggle" type="button" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -37,18 +38,19 @@
 
     <main>
         <!-- Banner principal -->
-        <section id="home">
+        <section id="Principal">
             <div class="overlay">
                 <img src="images/logo.png" alt="Osaka Gym" class="logo">
-
                 <p>"Cuando tus piernas no puedan más… tu corazón hará el resto!"</p>
-
             </div>
         </section>
 
 
-        <!-- Secciones cargadas por iframe -->
-        <iframe src="sections/gallery.html" classname="gallery-container" frameborder="0"></iframe>
+        <section id="gallery">
+            <div class="overlay">
+            <iframe src="sections/gallery.html" class="commitment-sec" frameborder="0"></iframe>
+        </div>
+        </section>
         <iframe src="sections/testimonials.html" frameborder="0"></iframe>
         <iframe src="sections/contact.html" frameborder="0"></iframe>
         <iframe src="sections/rutina.html" frameborder="0"></iframe>
