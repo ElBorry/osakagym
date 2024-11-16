@@ -1,6 +1,6 @@
 // home.scss
 
-#Principal{
+#section1{
     background-image: url('../images/Fondo.jpg');
     background-size: cover;
     background-position: center;
@@ -13,7 +13,7 @@
     position: relative;
 }
 
-#Principal.overlay {
+#home .overlay {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 40px;
     border-radius: 10px;
@@ -51,9 +51,37 @@
     margin-bottom: 20px;  // Espacio entre el logo y el texto
 }
 
-html, body {
+/* Estilo general para todos los iframes */
+iframe {
+    border: none;
+    display: block;
     width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+}
+
+/* Estilo específico para el iframe de la galería */
+.iframe-gallery {
+    height: 50vh; /* Ocupa toda la altura de la pantalla */
+}
+
+/* Estilo específico para el iframe de testimonios */
+.iframe-professor {
+    height: 450px; /* Una altura fija de 600px */
+}
+
+/* Estilo específico para el iframe de contacto */
+.iframe-contact {
+    height: 80vh; /* Ocupa toda la altura de la pantalla */
+    max-height: 100%; /* Previene que el iframe exceda la altura del contenedor */
+}
+
+@media (max-width: 768px) {
+    .iframe-gallery {
+        height: 80vh; /* Reduce la altura en pantallas pequeñas */
+    }
+
+    .iframe-professor,
+    .iframe-contact {
+        height: auto; /* Ajusta automáticamente según el contenido */
+        
+    }
 }

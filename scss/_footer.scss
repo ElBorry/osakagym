@@ -1,9 +1,132 @@
-// footer.scss
+.footer {
+    position: relative;
+    background-color: #0C0C0D; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    padding: 20px 10px;
 
-footer {
-    grid-area: footer;
-    background-color: $secondary-color;
-    color: $white-color;
-    text-align: center;
-    padding: 1rem;
+    /* Animación de onda */
+    .footer-wave {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+
+        svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 40px;
+
+            path:first-child {
+                fill: #ff7f00; /* Onda naranja */
+                animation: wave 6s infinite linear;
+            }
+
+            path:last-child {
+                fill: #0C0C0D; /* Onda negra */
+            }
+        }
+    }
+
+    /* Contenedor principal */
+    .footer-content {
+        display: flex;
+        justify-content: space-between; /* Alinea los elementos a los lados */
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+
+        /* Logo del gimnasio */
+        .footer-logo {
+            flex: 1 1 20%;
+            text-align: left;
+
+            a img {
+                width: 80px;
+                height: auto;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1); /* Zoom al pasar el cursor */
+                }
+            }
+        }
+
+        /* Redes sociales */
+        .footer-socials {
+            flex: 1 1 20%;
+            text-align: right;
+
+            .social-link {
+                font-size: 1.2rem;
+                color: #ff7f00; /* Naranja */
+                text-decoration: none;
+                margin-left: 10px;
+                transition: transform 0.3s ease, color 0.3s ease;
+
+                &:hover {
+                    color: #fff; /* Blanco al pasar el cursor */
+                    transform: scale(1.1); /* Zoom */
+                }
+
+                .whatsapp i {
+                    color: #ff7f00; /* Ícono naranja */
+                }
+            }
+        }
+
+        /* Descripción */
+        .footer-description {
+            flex: 1 1 60%;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-align: center;
+        }
+    }
+
+    /* Derechos reservados */
+    .footer-rights {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 0.9rem;
+        opacity: 0.8;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    /* Animación de onda */
+    @keyframes wave {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+
+            .footer-logo {
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .footer-socials {
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .footer-description {
+                margin-bottom: 15px;
+            }
+        }
+    }
 }

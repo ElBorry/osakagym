@@ -6,30 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Osaka Gym</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./css/styles.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
+<body class="tt-smooth-scroll">
     <header>
-        <!-- Navbar con TailwindCSS (oculto al inicio) -->
+        <!-- Navbar con Bootstrap -->
         <nav id="mainNav" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="display: none;">
             <div class="container">
-                <a href="#home"" class=" navbar-brand">
+                <a href="#home" class="navbar-brand">
                     <img src="images/logo.png" alt="Osaka Gym" class="navbar-logo">
                     Osaka Gym
                 </a>
-                <button class="navbar-toggler" id="navToggle" type="button" aria-controls="navbarNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" id="navToggle" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="#gallery" class="nav-link">Galería</a></li>
-                        <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonios</a></li>
+                        <li class="nav-item"><a href="#section2" class="nav-link">Galería</a></li>
+                        <li class="nav-item"><a href="#professor" class="nav-link">Profesores</a></li>
                         <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
-                        <li class="nav-item"><a href="#rutinas" class="nav-link">Rutinas</a></li>
                     </ul>
                 </div>
             </div>
@@ -37,33 +38,66 @@
     </header>
 
     <main>
-        <!-- Banner principal -->
-        <section id="Principal">
+        <!-- Banner section1 -->
+        <section id="section1" class="section">
             <div class="overlay">
                 <img src="images/logo.png" alt="Osaka Gym" class="logo">
                 <p>"Cuando tus piernas no puedan más… tu corazón hará el resto!"</p>
             </div>
         </section>
 
+        <iframe src="sections/gallery.html" frameborder="0" class="iframe-gallery"></iframe>
 
-        <section id="gallery">
-            <div class="overlay">
-            <iframe src="sections/gallery.html" class="commitment-sec" frameborder="0"></iframe>
-        </div>
-        </section>
-        <iframe src="sections/testimonials.html" frameborder="0"></iframe>
-        <iframe src="sections/contact.html" frameborder="0"></iframe>
-        <iframe src="sections/rutina.html" frameborder="0"></iframe>
-
-        <!-- Scripts -->
-        <script src="./js/scripts.js"></script> <!-- Archivo para los scripts -->
+        <!-- Secciones externas usando iframes -->
+        <iframe src="sections/professor.html" frameborder="0" class="iframe-professor"></iframe>
+        <iframe src="sections/contact.html" frameborder="0" class="iframe-contact"></iframe>
+        
     </main>
-    <footer>
-        <div class="text-center py-4 bg-gray-800 text-white">
+
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 120 28" preserveAspectRatio="none">
+                <path d="M0 22h120v6H0z"></path>
+                <path d="M0 0c30 20 60 20 120 0v22H0z"></path>
+            </svg>
+        </div>
+        <div class="footer-content container">
+            <!-- Logo del Gimnasio -->
+            <div class="footer-logo">
+                <a href="#home">
+                    <img src="images/logo.png" alt="Osaka Gym Logo">
+                </a>
+            </div>
+    
+            <!-- Descripción o Lema -->
+            <div class="footer-description">
+                <p>"Cuando tus piernas no puedan más, tu corazón hará el resto."</p>
+            </div>
+    
+            <!-- Redes Sociales -->
+            <div class="footer-socials">
+                <a href="https://wa.me/1234567890" target="_blank" class="social-link whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/osakagym" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/osaka.gym4/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-rights">
             <p>© 2024 Osaka Gym - Todos los derechos reservados</p>
         </div>
     </footer>
+    
+    
 
+    <!-- Scripts -->
+    <script src="./js/scripts.js"></script> <!-- Archivo para los scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

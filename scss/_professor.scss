@@ -1,0 +1,57 @@
+/* Contenedor principal de los profesores */
+.testimonials {
+    text-align: center;
+    padding: 10px 10px; /* Reducido el padding para hacer la sección más chata */
+    background-color: #0C0C0D;
+    color: #fff;
+}
+
+.testimonials h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de las tarjetas de los profesores */
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Estilo de cada tarjeta de profesor */
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 180px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Imagen en forma circular */
+.testimonial img {
+    width: 170px; /* Aumentado un 10% */
+    height: 170px; /* Aumentado un 10% */
+    border-radius: 50%; /* Mantiene la forma circular */
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto al pasar el cursor */
+.testimonial:hover img {
+    transform: scale(1.1); /* Agranda la imagen ligeramente */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+}
+
+.testimonial h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1em;
+    color: $primary-color; /* Color destacado para el nombre */
+}
+
+.testimonial p {
+    font-size: 0.9em;
+    color: #ccc;
+}

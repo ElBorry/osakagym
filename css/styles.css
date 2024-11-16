@@ -76,15 +76,120 @@ body {
   margin-right: 1rem;
 }
 
-footer {
-  grid-area: footer;
-  background-color: #333;
-  color: #fff;
+.footer {
+  position: relative;
+  background-color: #0C0C0D; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  padding: 20px 10px;
+  /* Animación de onda */
+  /* Contenedor principal */
+  /* Derechos reservados */
+  /* Animación de onda */
+  /* Responsive */
+}
+.footer .footer-wave {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.footer .footer-wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 40px;
+}
+.footer .footer-wave svg path:first-child {
+  fill: #ff7f00; /* Onda naranja */
+  animation: wave 6s infinite linear;
+}
+.footer .footer-wave svg path:last-child {
+  fill: #0C0C0D; /* Onda negra */
+}
+.footer .footer-content {
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos a los lados */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
-  padding: 1rem;
+  /* Logo del gimnasio */
+  /* Redes sociales */
+  /* Descripción */
+}
+.footer .footer-content .footer-logo {
+  flex: 1 1 20%;
+  text-align: left;
+}
+.footer .footer-content .footer-logo a img {
+  width: 80px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.footer .footer-content .footer-logo a img:hover {
+  transform: scale(1.1); /* Zoom al pasar el cursor */
+}
+.footer .footer-content .footer-socials {
+  flex: 1 1 20%;
+  text-align: right;
+}
+.footer .footer-content .footer-socials .social-link {
+  font-size: 1.2rem;
+  color: #ff7f00; /* Naranja */
+  text-decoration: none;
+  margin-left: 10px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.footer .footer-content .footer-socials .social-link:hover {
+  color: #fff; /* Blanco al pasar el cursor */
+  transform: scale(1.1); /* Zoom */
+}
+.footer .footer-content .footer-socials .social-link .whatsapp i {
+  color: #ff7f00; /* Ícono naranja */
+}
+.footer .footer-content .footer-description {
+  flex: 1 1 60%;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+}
+.footer .footer-rights {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.footer .footer-rights p {
+  margin: 0;
+}
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@media (max-width: 768px) {
+  .footer .footer-content {
+    flex-direction: column;
+  }
+  .footer .footer-content .footer-logo {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .footer .footer-content .footer-socials {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .footer .footer-content .footer-description {
+    margin-bottom: 15px;
+  }
 }
 
-#Principal {
+#section1 {
   background-image: url("../images/Fondo.jpg");
   background-size: cover;
   background-position: center;
@@ -97,7 +202,7 @@ footer {
   position: relative;
 }
 
-#Principal.overlay {
+#home .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 40px;
   border-radius: 10px;
@@ -135,48 +240,280 @@ footer {
   margin-bottom: 20px;
 }
 
-html, body {
+/* Estilo general para todos los iframes */
+iframe {
+  border: none;
+  display: block;
   width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
-/* Asegúrate de que la galería ocupe el 100% del ancho */
-.gallery {
-  width: 100%;
+/* Estilo específico para el iframe de la galería */
+.iframe-gallery {
+  height: 50vh; /* Ocupa toda la altura de la pantalla */
+}
+
+/* Estilo específico para el iframe de testimonios */
+.iframe-professor {
+  height: 450px; /* Una altura fija de 600px */
+}
+
+/* Estilo específico para el iframe de contacto */
+.iframe-contact {
+  height: 80vh; /* Ocupa toda la altura de la pantalla */
+  max-height: 100%; /* Previene que el iframe exceda la altura del contenedor */
+}
+
+@media (max-width: 768px) {
+  .iframe-gallery {
+    height: 80vh; /* Reduce la altura en pantallas pequeñas */
+  }
+  .iframe-professor,
+  .iframe-contact {
+    height: auto; /* Ajusta automáticamente según el contenido */
+  }
+}
+.section2 {
   display: flex;
-  overflow: hidden;
-  margin-top: 20px;
   justify-content: center;
+  gap: 10px; /* Ajusta el espacio entre las imágenes */
+  padding: 20px;
+  background-color: #0C0C0D;
+  overflow: hidden; /* Oculta contenido que se salga del contenedor */
 }
 
-.gallery-item {
-  flex: 1 0 20%;
-  transition: flex 0.5s ease-in-out;
-  overflow: hidden;
+.section2-item {
+  flex: 1 1 0;
+  max-width: 240px;
   position: relative;
+  overflow: hidden;
+  transition: flex 0.5s ease, transform 0.5s ease; /* Transición de flex y escala */
+  border-radius: 10px;
+  background-color: #1a1a1a;
 }
 
-.gallery-item img {
-  width: 100%;
+.section2-item img {
+  width: 60vh;
+  height: auto;
+  display: block;
   transition: transform 0.5s ease-in-out;
 }
 
-.gallery-item:hover {
-  flex: 1 0 40%;
+.section2-item:hover {
+  flex: 2 1 0; /* Expande el elemento bajo el puntero */
+  transform: scale(1.05); /* Hace zoom en la imagen */
 }
 
-.gallery-item:hover img {
-  transform: scale(1.1);
+.section2-item:hover ~ .section2-item {
+  flex: 0.5 1 0; /* Reduce el tamaño de los elementos siguientes */
+  transform: scale(0.9); /* Hace un pequeño zoom out en los elementos siguientes */
 }
 
-/* Asegúrate de que el body y html ocupen el 100% del ancho y alto */
-html, body {
+.section2-item:hover + .section2-item {
+  flex: 0.5 1 0; /* Reduce el tamaño de los elementos anteriores */
+  transform: scale(0.9);
+}
+
+.section2-item .text-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #f97316;
+  color: #000;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+/* Contenedor principal de los profesores */
+.testimonials {
+  text-align: center;
+  padding: 10px 10px; /* Reducido el padding para hacer la sección más chata */
+  background-color: #0C0C0D;
+  color: #fff;
+}
+
+.testimonials h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de las tarjetas de los profesores */
+.testimonials-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* Estilo de cada tarjeta de profesor */
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 180px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Imagen en forma circular */
+.testimonial img {
+  width: 170px; /* Aumentado un 10% */
+  height: 170px; /* Aumentado un 10% */
+  border-radius: 50%; /* Mantiene la forma circular */
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto al pasar el cursor */
+.testimonial:hover img {
+  transform: scale(1.1); /* Agranda la imagen ligeramente */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+}
+
+.testimonial h3 {
+  margin: 10px 0 5px;
+  font-size: 1.1em;
+  color: #f97316; /* Color destacado para el nombre */
+}
+
+.testimonial p {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+/* Sección principal de contacto */
+.contact-section {
+  background-color: #0C0C0D; /* Fondo negro */
+  min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #fff; /* Letra blanca para todo el texto */
+}
+
+/* Contenedor del contenido */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  max-width: 1200px;
   width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+}
+
+/* Formulario de contacto */
+.contact-form {
+  flex: 1 1 45%;
+  background-color: #ff7f00; /* Fondo naranja para el formulario */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+.contact-form .form-group label {
+  display: block;
+  font-weight: bold;
+  color: #fff; /* Texto blanco */
+  margin-bottom: -28px;
+}
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  color: #0C0C0D; /* Texto oscuro en el campo para buen contraste */
+  background-color: #fff; /* Fondo blanco para los campos */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+.contact-form .form-group input::placeholder,
+.contact-form .form-group textarea::placeholder {
+  color: rgba(12, 12, 13, 0.7); /* Texto del placeholder ligeramente más claro */
+}
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  border-color: #ff7f00; /* Borde naranja al enfocar */
+}
+.contact-form .submit-button {
+  width: 100%; /* Botón ocupa todo el ancho del contenedor */
+  padding: 15px; /* Espaciado interno para un diseño más robusto */
+  background-color: #000; /* Fondo naranja consistente con la estética */
+  color: #fff; /* Texto blanco */
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1rem; /* Tamaño del texto */
+  border: none; /* Elimina el borde por defecto */
+  border-radius: 6px; /* Bordes redondeados */
+  cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: all 0.3s ease; /* Transición suave para los efectos */
+}
+.contact-form .submit-button:hover {
+  background-color: #e36d00; /* Fondo naranja más oscuro al pasar el cursor */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Sombra más profunda */
+}
+.contact-form .submit-button:active {
+  background-color: #cc6200; /* Fondo más oscuro al hacer clic */
+  transform: scale(0.98); /* Efecto de clic visual */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Sombra más comprimida */
+}
+
+/* Imagen con texto */
+.contact-image {
+  flex: 1 1 50%; /* Tamaño del contenedor */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido horizontalmente */
+  justify-content: flex-start; /* Alinea el contenido verticalmente */
+}
+.contact-image .image-text {
+  position: absolute;
+  top: 30px; /* Ajusta la posición del texto */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  align-self: flex-start; /* Alinea el texto con el inicio del formulario */
+}
+.contact-image img {
+  width: 100%;
+  max-width: 500px; /* Aumenta el tamaño máximo */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 100px; /* Baja un poco la imagen */
+}
+
+/* Ajustes Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+  }
+  .contact-form,
+  .contact-image {
+    flex: 1 1 100%;
+  }
+  .contact-image .image-text {
+    position: static;
+    font-size: 1.2rem; /* Reduce el tamaño del texto en pantallas pequeñas */
+    margin-bottom: 10px;
+    align-self: center; /* Centra el texto en pantallas pequeñas */
+  }
+  .contact-image img {
+    max-width: 100%; /* Asegura que la imagen se ajuste al ancho del contenedor */
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

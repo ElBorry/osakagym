@@ -38,3 +38,48 @@ var TrandingSlider = new Swiper('.tranding-slider', {
         prevEl: '.swiper-button-prev',
     }
 });
+
+// Función para cargar contenido de otro HTML en una sección específica
+function loadSection(sectionId, url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById(sectionId).innerHTML = html;
+        })
+        .catch(error => console.error('Error cargando la sección:', error));
+}
+
+function loadSection(sectionId, url) {
+    fetch(`sections/${url}.html`)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById(sectionId).innerHTML = html;
+        })
+        .catch(error => console.error('Error cargando la sección:', error));
+}
+
+function observeSections() {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                if (!entry.target.innerHTML) {
+                    loadSection(sectionId, sectionId);
+                }
+            }
+        });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => observer.observe(section));
+}
+
+// Ajusta la altura del iframe según el contenido cargado
+function adjustIframeHeight(iframe) {
+    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+}
+
+// Llama a la función cuando el iframe cargue
+document.querySelectorAll('iframe').forEach(iframe => {
+    iframe.addEventListener('load', () => adjustIframeHeight(iframe));
+});
