@@ -1,0 +1,39 @@
+.carousel {
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+    img {
+        object-fit: cover;
+        height: 60vh; /* Ajuste base para pantallas grandes */
+        width: 100%;
+    }
+
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px 15px;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    /* Botones de control */
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(1); /* Cambia iconos a blanco */
+    }
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .carousel img {
+        height: 40vh; /* Ajusta altura en móviles */
+    }
+
+    .carousel-caption {
+        font-size: 1rem;
+    }
+}

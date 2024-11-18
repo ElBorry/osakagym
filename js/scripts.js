@@ -83,3 +83,59 @@ function adjustIframeHeight(iframe) {
 document.querySelectorAll('iframe').forEach(iframe => {
     iframe.addEventListener('load', () => adjustIframeHeight(iframe));
 });
+
+
+// Ocultar el loader después de que la página cargue
+window.addEventListener("load", function () {
+    console.log("Página completamente cargada, iniciando transición del loader...");
+    const loader = document.getElementById("loader");
+
+    // Garantiza que el loader se muestre antes de ocultarlo
+    setTimeout(() => {
+        loader.style.transition = "opacity 0.5s ease"; // Transición suave
+        loader.style.opacity = "0"; // Lo oculta
+        console.log("Ocultando loader después del tiempo configurado");
+        setTimeout(() => {
+            loader.style.display = "none"; // Lo elimina del DOM
+        }, 500); // Asegura que se oculta tras la transición
+    }, 2000); // Configura el tiempo deseado (3 segundos en este caso)
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const swiper = new Swiper('.swiper-container', {
+        // Configuración del Swiper
+        direction: 'horizontal',
+        loop: true,
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source'); // gallery o null
+
+    if (source === 'gallery') {
+        // Ocultar navbar y footer si viene de gallery
+        const navbar = document.getElementById("mainNav");
+        const footer = document.querySelector("footer");
+
+        if (navbar) navbar.style.display = "none";
+        if (footer) footer.style.display = "none";
+
+        // Mostrar la flecha de regreso
+        const backArrow = document.createElement("div");
+        backArrow.innerHTML = `
+            <a href="../index.html" class="btn btn-secondary btn-sm" id="backButton">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+        `;
+        backArrow.style.margin = "20px";
+        document.body.prepend(backArrow);
+
+        // Evento del botón "Volver"
+        document.getElementById("backButton").addEventListener("click", (event) => {
+            event.preventDefault(); // Evita la recarga normal
+            window.location.href = "../index.html"; // Redirige correctamente
+        });
+    }
+});

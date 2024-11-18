@@ -122,24 +122,16 @@
 /* Ajustes Responsive */
 @media (max-width: 768px) {
     .contact-wrapper {
-        flex-direction: column;
+        flex-direction: column; /* Cambia a diseño en columna */
     }
 
-    .contact-form,
-    .contact-image {
+    .contact-form {
         flex: 1 1 100%;
     }
 
-    .contact-image .image-text {
-        position: static;
-        font-size: 1.2rem; /* Reduce el tamaño del texto en pantallas pequeñas */
-        margin-bottom: 10px;
-        align-self: center; /* Centra el texto en pantallas pequeñas */
-    }
-
-    .contact-image img {
-        max-width: 100%; /* Asegura que la imagen se ajuste al ancho del contenedor */
-        height: auto;
+    /* Ocultar la imagen en pantallas pequeñas */
+    .contact-image {
+        display: none; /* Oculta la imagen en pantallas pequeñas */
     }
 }
 

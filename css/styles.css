@@ -201,6 +201,32 @@ body {
   text-align: center;
   position: relative;
 }
+#section1 .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#section1 .overlay p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20px;
+  text-align: center;
+}
+#section1 .logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ff7f00;
+  transition: transform 0.3s ease;
+}
+#section1 .logo:hover {
+  transform: rotateY(360deg);
+}
 
 #home .overlay {
   background-color: rgba(0, 0, 0, 0.5);
@@ -233,13 +259,6 @@ body {
   border-radius: 5px;
 }
 
-/* Estilos específicos para el logo */
-.logo {
-  width: 250px;
-  height: auto;
-  margin-bottom: 20px;
-}
-
 /* Estilo general para todos los iframes */
 iframe {
   border: none;
@@ -247,54 +266,166 @@ iframe {
   width: 100%;
 }
 
-/* Estilo específico para el iframe de la galería */
 .iframe-gallery {
-  height: 50vh; /* Ocupa toda la altura de la pantalla */
+  height: 100vh; /* Incrementa la altura para mostrar las imágenes más grandes */
+  max-height: 100%; /* Asegura que no exceda el viewport */
+  width: 100%;
+  border: none; /* Elimina cualquier borde */
 }
 
 /* Estilo específico para el iframe de testimonios */
 .iframe-professor {
-  height: 450px; /* Una altura fija de 600px */
+  height: auto; /* Ajusta automáticamente según el contenido */
+  min-height: 500px; /* Altura mínima para pantallas pequeñas */
+  max-height: 100vh; /* Asegura que no exceda el viewport */
+  overflow: hidden; /* Evita scroll dentro del iframe */
+  border: none; /* Limpia cualquier borde predeterminado */
 }
 
 /* Estilo específico para el iframe de contacto */
 .iframe-contact {
-  height: 80vh; /* Ocupa toda la altura de la pantalla */
+  height: 50vh; /* Ocupa toda la altura de la pantalla */
   max-height: 100%; /* Previene que el iframe exceda la altura del contenedor */
 }
 
 @media (max-width: 768px) {
   .iframe-gallery {
-    height: 80vh; /* Reduce la altura en pantallas pequeñas */
+    height: 80vh;
+    /* Reduce la altura en pantallas pequeñas */
   }
   .iframe-professor,
   .iframe-contact {
-    height: auto; /* Ajusta automáticamente según el contenido */
+    height: auto;
+    /* Ajusta automáticamente según el contenido */
   }
 }
-.section2 {
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0C0C0D; /* Fondo negro */
   display: flex;
   justify-content: center;
-  gap: 10px; /* Ajusta el espacio entre las imágenes */
+  align-items: center;
+  z-index: 9999;
+}
+#loader .ring {
+  --s: 25vmin; /* Tamaño del anillo */
+  --clr: #f1730b; /* Color principal del anillo */
+  --shd1: color-mix(in lab, var(--clr), #fff5);
+  --b1: 140% 145% 141% 166%;
+  --b2: 147% 200% 178% 150%;
+  border-radius: var(--b1);
+  border: 1px solid var(--clr);
+  position: fixed;
+  pointer-events: none;
+  z-index: -100;
+  width: var(--s);
+  height: var(--s);
+  top: calc(50% - var(--s) / 2);
+  left: calc(50% - var(--s) / 2);
+  box-sizing: border-box;
+  rotate: -55deg;
+  animation: brd1 1s infinite linear alternate, rot 30s infinite linear forwards;
+  filter: drop-shadow(0 0 1vmin var(--shd1)) drop-shadow(0.1em 0.1em 0.05em var(--shd1)) drop-shadow(-0.1em -0.1em 0.05em var(--shd1));
+}
+#loader .ring:before,
+#loader .ring:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0;
+  border: inherit;
+}
+#loader .ring:before {
+  --b2: 185% 158% 160% 150%;
+  --b1: 147% 200% 178% 150%;
+  border-radius: var(--b1);
+  rotate: 55deg;
+  animation: brd1 1.5s infinite linear alternate, rot 30s infinite linear forwards reverse;
+  content: attr(data-text);
+  display: grid;
+  place-content: center;
+  align-content: center;
+  font-family: system-ui, sans-serif;
+  font-size: calc(var(--s) / 10);
+  text-shadow: 1px 1px 0.5em #000;
+}
+#loader .ring:after {
+  --b1: 185% 158% 160% 150%;
+  --b2: 140% 145% 141% 166%;
+  border-radius: var(--b1);
+  rotate: 35deg;
+  animation: brd1 2s infinite linear alternate, rot 40s infinite linear forwards reverse;
+}
+@keyframes brd1 {
+  to {
+    border-radius: var(--b2);
+  }
+}
+@keyframes rot {
+  to {
+    transform: rotatez(360deg);
+  }
+}
+
+.section2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
+  align-items: center;
+  min-height: 90vh;
   background-color: #0C0C0D;
-  overflow: hidden; /* Oculta contenido que se salga del contenedor */
+}
+@media (max-width: 768px) {
+  .section2 {
+    display: grid;
+    /* Cambia el diseño a grid */
+    grid-template-columns: repeat(2, 1fr);
+    /* Dos columnas iguales */
+    gap: 15px;
+    /* Espacio entre elementos */
+    justify-items: center;
+    /* Centra los elementos en el grid */
+  }
 }
 
 .section2-item {
-  flex: 1 1 0;
-  max-width: 240px;
+  flex: 1 1 calc(25% - 30px); /* Ajusta el ancho de cada imagen */
+  max-width: 340px;
   position: relative;
   overflow: hidden;
   transition: flex 0.5s ease, transform 0.5s ease; /* Transición de flex y escala */
   border-radius: 10px;
   background-color: #1a1a1a;
 }
+.section2-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asegura que la imagen se ajuste */
+}
+.section2-item:hover {
+  transform: scale(1.05);
+  /* Zoom suave */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+  /* Sombra al pasar el cursor */
+}
+@media (max-width: 768px) {
+  .section2-item {
+    max-width: 100%; /* Asegura que las imágenes ocupen el espacio disponible */
+    width: 140px; /* Establece un tamaño cuadrado */
+    height: 140px;
+  }
+}
 
 .section2-item img {
-  width: 60vh;
-  height: auto;
-  display: block;
+  width: 100%; /* Imagen llena el contenedor */
+  height: 100%; /* Imagen cuadrada */
+  object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
   transition: transform 0.5s ease-in-out;
 }
 
@@ -325,57 +456,40 @@ iframe {
   font-size: 0.9em;
 }
 
-/* Contenedor principal de los profesores */
-.testimonials {
-  text-align: center;
-  padding: 10px 10px; /* Reducido el padding para hacer la sección más chata */
-  background-color: #0C0C0D;
-  color: #fff;
-}
-
-.testimonials h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-/* Contenedor de las tarjetas de los profesores */
 .testimonials-container {
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
+  justify-content: center; /* Centra las imágenes horizontalmente */
+  gap: 20px; /* Espacio entre tarjetas */
+  flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
+  padding: 50px 50px; /* Aumenta el espacio interno para evitar scroll */
 }
 
-/* Estilo de cada tarjeta de profesor */
 .testimonial {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 180px;
+  width: 200px; /* Vuelve al tamaño original */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Imagen en forma circular */
 .testimonial img {
-  width: 170px; /* Aumentado un 10% */
-  height: 170px; /* Aumentado un 10% */
-  border-radius: 50%; /* Mantiene la forma circular */
+  width: 150px; /* Tamaño estándar */
+  height: 150px;
+  border-radius: 50%; /* Circular */
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Efecto al pasar el cursor */
 .testimonial:hover img {
-  transform: scale(1.1); /* Agranda la imagen ligeramente */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+  transform: scale(1.2); /* Amplía la imagen */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra */
 }
 
 .testimonial h3 {
   margin: 10px 0 5px;
-  font-size: 1.1em;
-  color: #f97316; /* Color destacado para el nombre */
+  font-size: 1.2em;
+  color: #fff; /* Texto blanco */
 }
 
 .testimonial p {
@@ -383,6 +497,74 @@ iframe {
   color: #ccc;
 }
 
+h2 {
+  text-align: center; /* Centra el texto horizontalmente */
+  font-size: 2rem; /* Tamaño del texto */
+  margin: 0 auto 30px; /* Añade espacio debajo y centra con auto */
+  color: #fff; /* Texto blanco */
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+}
+
+@media (max-width: 768px) {
+  .testimonials-container {
+    display: flex;
+    justify-content: space-between; /* Espacia uniformemente */
+    gap: 10px;
+  }
+  .testimonial {
+    position: relative;
+    width: 100px; /* Tamaño reducido */
+    height: 100px;
+    perspective: 1000px; /* Efecto 3D */
+  }
+  .testimonial img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+  }
+  .testimonial:hover img {
+    transform: rotateY(180deg); /* Gira la imagen */
+  }
+  .testimonial::before {
+    content: attr(data-text); /* Inserta texto dinámico */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0C0C0D;
+    color: #fff;
+    font-size: 0.8rem; /* Texto más pequeño */
+    text-align: center;
+    padding: 5px; /* Ajusta el espacio interno */
+    transform: rotateY(180deg); /* Oculta el texto inicialmente */
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+  }
+  .testimonial:hover::before {
+    transform: rotateY(0); /* Muestra el texto al girar */
+  }
+  h2 {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 2rem; /* Tamaño del texto */
+    margin: 0 auto 30px; /* Añade espacio debajo y centra con auto */
+    color: #fff; /* Texto blanco */
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  }
+}
+@media (max-width: 768px) {
+  .testimonial h3,
+  .testimonial p {
+    display: none; /* Oculta el texto debajo de las imágenes */
+  }
+}
 /* Sección principal de contacto */
 .contact-section {
   background-color: #0C0C0D; /* Fondo negro */
@@ -498,21 +680,49 @@ iframe {
 /* Ajustes Responsive */
 @media (max-width: 768px) {
   .contact-wrapper {
-    flex-direction: column;
+    flex-direction: column; /* Cambia a diseño en columna */
   }
-  .contact-form,
-  .contact-image {
+  .contact-form {
     flex: 1 1 100%;
   }
-  .contact-image .image-text {
-    position: static;
-    font-size: 1.2rem; /* Reduce el tamaño del texto en pantallas pequeñas */
-    margin-bottom: 10px;
-    align-self: center; /* Centra el texto en pantallas pequeñas */
+  /* Ocultar la imagen en pantallas pequeñas */
+  .contact-image {
+    display: none; /* Oculta la imagen en pantallas pequeñas */
   }
-  .contact-image img {
-    max-width: 100%; /* Asegura que la imagen se ajuste al ancho del contenedor */
-    height: auto;
+}
+.carousel {
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  /* Botones de control */
+}
+.carousel img {
+  object-fit: cover;
+  height: 60vh; /* Ajuste base para pantallas grandes */
+  width: 100%;
+}
+.carousel .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.carousel .carousel-control-prev-icon,
+.carousel .carousel-control-next-icon {
+  filter: invert(1); /* Cambia iconos a blanco */
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .carousel img {
+    height: 40vh; /* Ajusta altura en móviles */
+  }
+  .carousel-caption {
+    font-size: 1rem;
   }
 }
 
