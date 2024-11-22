@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disfrutando - Osaka Gym</title>
+    <title>Osaka Gym</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="../css/styles.css">
+
+
 </head>
 
 <body>
@@ -85,20 +89,50 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <script>
-        if (source !== 'gallery') {
-            document.write(`
-                <footer class="footer">
-                    <div class="container">
-                        <p>© 2024 Osaka Gym - Todos los derechos reservados</p>
-                    </div>
-                </footer>
-            `);
-        }
-    </script>
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 120 28" preserveAspectRatio="none">
+                <path d="M0 22h120v6H0z"></path>
+                <path d="M0 0c30 20 60 20 120 0v22H0z"></path>
+            </svg>
+        </div>
+        <div class="footer-content container">
+            <!-- Logo del Gimnasio -->
+            <div class="footer-logo">
+                <a href="#home">
+                    <img src="../images/logo.PNG" alt="Osaka Gym Logo">
+                </a>
+            </div>
 
+            <!-- Descripción o Lema -->
+            <div class="footer-description">
+                <p>"Cuando tus piernas no puedan más, tu corazón hará el resto."</p>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="footer-socials">
+                <a href="https://wa.me/1234567890" target="_blank" class="social-link whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/osakagym" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/osaka.gym4/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-rights">
+            <p>© 2024 Osaka Gym - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
 </body>
 
 </html>

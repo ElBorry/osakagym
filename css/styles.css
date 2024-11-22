@@ -260,7 +260,7 @@ body {
 }
 
 /* Estilo general para todos los iframes */
-iframe {
+section {
   border: none;
   display: block;
   width: 100%;

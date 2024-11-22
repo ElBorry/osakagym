@@ -39,15 +39,6 @@ var TrandingSlider = new Swiper('.tranding-slider', {
     }
 });
 
-// Función para cargar contenido de otro HTML en una sección específica
-function loadSection(sectionId, url) {
-    fetch(url)
-        .then(response => response.text())
-        .then(html => {
-            document.getElementById(sectionId).innerHTML = html;
-        })
-        .catch(error => console.error('Error cargando la sección:', error));
-}
 
 function loadSection(sectionId, url) {
     fetch(`sections/${url}.html`)
@@ -57,32 +48,6 @@ function loadSection(sectionId, url) {
         })
         .catch(error => console.error('Error cargando la sección:', error));
 }
-
-function observeSections() {
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const sectionId = entry.target.id;
-                if (!entry.target.innerHTML) {
-                    loadSection(sectionId, sectionId);
-                }
-            }
-        });
-    }, { threshold: 0.5 });
-
-    sections.forEach(section => observer.observe(section));
-}
-
-// Ajusta la altura del iframe según el contenido cargado
-function adjustIframeHeight(iframe) {
-    iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
-}
-
-// Llama a la función cuando el iframe cargue
-document.querySelectorAll('iframe').forEach(iframe => {
-    iframe.addEventListener('load', () => adjustIframeHeight(iframe));
-});
 
 
 // Ocultar el loader después de que la página cargue
@@ -132,10 +97,40 @@ document.addEventListener("DOMContentLoaded", () => {
         backArrow.style.margin = "20px";
         document.body.prepend(backArrow);
 
-        // Evento del botón "Volver"
-        document.getElementById("backButton").addEventListener("click", (event) => {
-            event.preventDefault(); // Evita la recarga normal
-            window.location.href = "../index.html"; // Redirige correctamente
-        });
-    }
+ // Evento del botón "Volver a la galería"
+ document.getElementById("backButton").addEventListener("click", (event) => {
+    event.preventDefault(); // Evita la recarga normal
+
+    // Muestra nuevamente la galería en el index
+    const gallerySection = document.querySelector('.iframe-gallery');
+    const content = `
+        <div class="section2">
+            <a href="./sections/gym.html?source=gallery" class="section2-item">
+                <span class="text-label">GYM</span>
+                <img src="../images/GIM6.jpg" alt="Gym Image">
+            </a>
+            <a href="./sections/rutinas.html?source=gallery" class="section2-item">
+                <span class="text-label">RUTINAS</span>
+                <img src="../images/RUTINA.jpg" alt="Fitness Image">
+            </a>
+            <a href="./sections/avisos.html?source=gallery" class="section2-item">
+                <span class="text-label">AVISOS</span>
+                <img src="../images/Diseño sin título.png" alt="Fitness Image">
+            </a>
+            <a href="./sections/disfrutando.html?source=gallery" class="section2-item">
+                <span class="text-label">DISFRUTANDO</span>
+                <img src="../images/DISFRUTANDO.jpg" alt="Training Image">
+            </a>
+        </div>
+    `;
+    gallerySection.innerHTML = content;
+
+    // Restaura el navbar y el footer
+    if (navbar) navbar.style.display = "flex";
+    if (footer) footer.style.display = "block";
+
+    // Elimina la flecha de regreso
+    backArrow.remove();
+});
+}
 });
