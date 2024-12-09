@@ -1,0 +1,109 @@
+@use 'variables';
+
+.testimonials-container {
+    display: flex;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    gap: 20px; /* Espacio entre tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
+    padding: 0; /* Aumenta el espacio interno */
+    background-color: #0C0C0D;; /* Fondo negro */
+}
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%; /* Circular */
+        object-fit: cover;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.2); /* Amplía la imagen */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra */
+    }
+
+    h3 {
+        margin: 10px 0 5px;
+        font-size: 1.2em;
+        color: #fff; /* Texto blanco */
+    }
+
+    p {
+        font-size: 0.9em;
+        color: #ccc;
+    }
+}
+
+h2 {
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 2rem; /* Tamaño del texto */
+    margin: 0 auto 30px; /* Añade espacio debajo */
+    color: #fff; /* Texto blanco */
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+}
+
+@media (max-width: 768px) {
+    .testimonials-container {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .testimonial {
+        width: 120px; /* Tamaño reducido */
+        height: 100px;
+        perspective: 1000px; /* Efecto 3D */
+
+        img {
+            width: 130PX;
+            height: 130Px;
+            border-radius: 50%;
+            object-fit: cover;
+            backface-visibility: hidden;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        &:hover img {
+            transform: rotateY(180deg); /* Gira la imagen */
+        }
+
+        &::before {
+            content: attr(data-text); /* Inserta texto dinámico */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: variables.$primary-color;
+            color: #fff;
+            font-size: 0.8rem; /* Texto más pequeño */
+            text-align: center;
+            padding: 5px;
+            transform: rotateY(180deg); /* Oculta el texto inicialmente */
+            backface-visibility: hidden;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        &:hover::before {
+            transform: rotateY(0); /* Muestra el texto al girar */
+        }
+    }
+
+    h3,
+    p {
+        display: none; /* Oculta el texto debajo de las imágenes */
+    }
+}
+

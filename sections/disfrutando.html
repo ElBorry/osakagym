@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Osaka Gym, tu gimnasio ideal para entrenamientos personalizados, fuerza y acondicionamiento. ¡Tu corazón hará el resto!">
+    <meta name="keywords" content="gimnasio, fuerza, acondicionamiento, entrenamiento funcional, Osaka Gym">
+    <meta name="author" content="Osaka Gym Team">
+
+    <title>Osaka Gym</title>
+    <link rel="icon" href="./images/logo.PNG" type="image/png">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+
+
+</head>
+
+<body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('source');
+    </script>
+
+    <!-- Navbar -->
+    <script>
+        if (source !== 'gallery') {
+            document.write(`
+                <header>
+                    <nav id="mainNav" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                        <div class="container">
+                            <a href="../index.html" class="navbar-brand">
+                                <img src="../images/logo.PNG" alt="Osaka Gym" class="navbar-logo">
+                                Osaka Gym
+                            </a>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item"><a href="gym.html" class="nav-link">GYM</a></li>
+                                    <li class="nav-item"><a href="rutinas.html" class="nav-link">Rutinas</a></li>
+                                    <li class="nav-item"><a href="avisos.html" class="nav-link">Avisos</a></li>
+                                    <li class="nav-item"><a href="disfrutando.html" class="nav-link">Disfrutando</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            `);
+        }
+    </script>
+
+    <main>
+        <script>
+            if (source === 'gallery') {
+                document.write(`
+                    <div class="container my-3">
+                        <a href="../index.html#iframe-gallery" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Volver a la galería
+                        </a>
+                    </div>
+                `);
+            }
+        </script>
+
+        <section class="page-section">
+            <div class="container">
+                <h1 class="text-center mb-4">Disfrutando</h1>
+                <div id="rutinasCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../images/DISFRUTANDO.jpg" class="d-block w-100" alt="Disfrutando 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../images/DISFRUTANDO1.jpg" class="d-block w-100" alt="Disfrutando 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../images/DISFRUTANDO2.jpg" class="d-block w-100" alt="Disfrutando 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../images/DISFRUTANDO3.jpg" class="d-block w-100" alt="disfrutando 4">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#rutinasCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#rutinasCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-wave">
+            <svg viewBox="0 0 120 28" preserveAspectRatio="none">
+                <path d="M0 22h120v6H0z"></path>
+                <path d="M0 0c30 20 60 20 120 0v22H0z"></path>
+            </svg>
+        </div>
+        <div class="footer-content container">
+            <!-- Logo del Gimnasio -->
+            <div class="footer-logo">
+                <a href="../index.html#section1">
+                    <img src="../images/logo.PNG" alt="Osaka Gym Logo">
+                </a>
+            </div>
+
+            <!-- Descripción o Lema -->
+            <div class="footer-description">
+                <p>"Cuando tus piernas no puedan más, tu corazón hará el resto."</p>
+            </div>
+
+            <!-- Redes Sociales -->
+            <div class="footer-socials">
+                <a href="https://wa.me/1234567890" target="_blank" class="social-link whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://facebook.com/osakagym" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/osaka.gym4/" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-rights">
+            <p>© 2024 Osaka Gym - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>

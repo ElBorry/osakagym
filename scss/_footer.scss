@@ -1,0 +1,138 @@
+@use 'variables';
+
+.footer {
+    background-color: variables.$secondary-color; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    text-align: center;
+    margin: 0;
+    padding: 10px 10px; /* Reduce el padding para hacerlo más compacto */
+    position: relative;
+    font-size: 0.9rem;
+    box-sizing: border-box; /* Asegura que padding y bordes no aumenten la altura */
+
+  
+    /* Animación de onda */
+    .footer-wave {
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+  
+      svg {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 30px;
+  
+        path:first-child {
+          fill: #ff7f00; /* Onda naranja */
+          animation: wave 6s infinite linear;
+        }
+  
+        path:last-child {
+          fill: variables.$secondary-color; /* Onda negra */
+        }
+      }
+    }
+  
+    /* Contenedor principal */
+    .footer-content {
+      display: flex;
+      justify-content: space-between; /* Elementos distribuidos */
+      align-items: center;
+      max-width: 200pv;
+      margin: 0 auto;
+  
+      /* Logo */
+      .footer-logo {
+        flex: 1;
+        text-align: left;
+  
+        a img {
+          width: 60px; /* Tamaño más pequeño */
+          height: auto;
+          transition: transform 0.3s ease;
+          margin-top: 20px; /* Ajusta este margen según lo necesites */
+  
+          &:hover {
+            transform: scale(1.1); /* Zoom al pasar el cursor */
+          }
+        }
+      }
+  
+      /* Redes sociales */
+      .footer-socials {
+        flex: 1;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+  
+        .social-link {
+          font-size: 1.2rem;
+          color: #ff7f00; /* Naranja */
+          text-decoration: none;
+          transition: transform 0.3s ease, color 0.3s ease;
+  
+          &:hover {
+            color: #fff; /* Blanco al pasar el cursor */
+            transform: scale(1.1);
+          }
+        }
+      }
+  
+      /* Frase principal */
+      .footer-description {
+        flex: 2;
+        font-size: 1rem;
+        font-style: italic;
+        text-align: center;
+      }
+    }
+  
+    /* Derechos reservados */
+    .footer-rights {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      opacity: 0.7;
+  
+      p {
+        margin: 0;
+      }
+    }
+  
+    /* Animación de onda */
+    @keyframes wave {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+  
+        .footer-logo {
+          margin-bottom: 10px;
+        }
+  
+        .footer-socials {
+          justify-content: center;
+          margin-top: 10px;
+        }
+  
+        .footer-description {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  
