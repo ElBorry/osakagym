@@ -145,3 +145,15 @@ document.addEventListener("click", (event) => {
     }
 });
 
+function toggleChatPopup(event) {
+    event.preventDefault();
+    const chatPopup = document.getElementById("chat-popup");
+    chatPopup.style.display =
+        chatPopup.style.display === "flex" ? "none" : "flex";
+}
+
+function startWhatsAppChat() {
+    const phoneNumber = "+54 9 370 480-0338"; // Reemplaza con el número del gimnasio
+    const message = encodeURIComponent("¡Hola! Quiero más información sobre Osaka Gym.");
+    window.open(`https://api.whatsapp.com/send?phone=${phoneNumber}&text=${message}`, "_blank");
+}

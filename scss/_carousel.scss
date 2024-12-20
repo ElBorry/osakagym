@@ -1,3 +1,5 @@
+@use 'variables';
+
 .carousel {
   max-width: 100%;
   margin: 0 auto;
@@ -7,8 +9,13 @@
 
   img {
     width: 100%;
-    height: auto; /* Ajusta automáticamente para mantener proporción */
-    object-fit: contain; /* Cambia de "cover" a "contain" para evitar zoom */
+    /*height: auto;  Mantén la proporción */
+    /*max-height: 100vh; /* Haz que la imagen ocupe hasta el 70% del viewport height */
+    object-fit: contain;
+    /*Asegúrate de que la imagen cubra el espacio sin deformarse */
+    border-radius: 10px;
+    /* Opcional para estética */
+
   }
 
   .carousel-caption {
@@ -22,17 +29,70 @@
 
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
-    filter: invert(1); /* Cambiar iconos a blanco */
+    background-color: transparent;
+    /* Sin fondo */
+    border: 2px solid variables.$primary-color;
+    /* Borde naranja */
+    border-radius: 50%;
+    /* Hace que sea circular */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+
+  .carousel-control-prev-icon:hover,
+  .carousel-control-next-icon:hover {
+    background-color: variables.$primary-color-v2;
+    /* Naranja más oscuro al hover */
+    transform: scale(1.1);
+    /* Zoom suave */
+  }
+}
+
+.page-section {
+  min-height: 100vh;
+  /* Ocupa al menos toda la pantalla */
+  display: flex;
+  align-items: center;
+  /* Centra el contenido verticalmente */
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    /* Elimina altura fija en móviles */
+    padding: 20px 0;
+    /* Agrega un pequeño padding */
   }
 }
 
 /* Responsivo */
+
 @media (max-width: 768px) {
+  .carousel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
   .carousel img {
-    height: auto; /* Ajusta automáticamente en móviles */
+    max-height: 50vh;
+    /* Reduce la altura máxima en móviles */
+    object-fit: contain;
+    /* Ajusta la imagen para que no se recorte en móviles */
   }
 
   .carousel-caption {
     font-size: 1rem;
+    /* Texto más pequeño */
   }
 }
+
+@media (min-width: 1024px) {
+  .carousel img {
+    max-height: 80vh;
+    /* Reduce un poco la altura para que se ajusten mejor */
+  }
+}
+
