@@ -1,0 +1,933 @@
+@charset "UTF-8";
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.container-base, .footer-content, .header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  background-color: #0c0d0c;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Box Model */
+html, body {
+  font-family: "Poppins", sans-serif;
+  color: #fff; /* Prefijo agregado */
+  background-color: #0C0C0D;
+  vertical-align: baseline;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: clamp(16px, 0.938vw, 22px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el contenido siempre ocupa al menos toda la pantalla */
+}
+
+/* Contenedor de Grid */
+.grid-contenedor-padre {
+  display: grid;
+  flex: 1; /* Asegura que el contenido principal ocupe el espacio disponible */
+  grid-template-areas: "header" "nav" "main" "footer";
+  grid-gap: 20px; /* Prefijo agregado */
+}
+
+.grid-item-hijo {
+  padding: 20px; /* Prefijo agregado */
+  margin-bottom: 20px; /* Prefijo agregado */
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+  .grid-contenedor-padre {
+    grid-template-areas: "header" "main" "nav" "footer";
+  }
+}
+#mainNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 1rem;
+  color: #fff;
+  z-index: 10;
+  /* Flexbox para navbar */
+}
+#mainNav .navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #f97316;
+}
+#mainNav .nav-item a {
+  color: #fff;
+  text-decoration: none;
+}
+#mainNav .nav-item a:hover {
+  color: #f97316;
+}
+#mainNav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+@media (max-width: 768px) {
+  #mainNav ul {
+    flex-direction: column;
+  }
+}
+
+.navbar-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.footer {
+  background-color: #333; /* Fondo negro */
+  color: #fff; /* Usa la variable de color blanco */
+  text-align: center;
+  margin-top: auto;
+  padding: 20px 0; /* Aumenta ligeramente el padding */
+  position: relative;
+  font-size: 0.9rem; /* Tamaño de letra similar al texto del home */
+  font-weight: bold; /* Aplica el mismo peso que el texto del home */
+  font-family: "Poppins", sans-serif; /* Asegúrate de usar la misma fuente */
+  box-sizing: border-box;
+  /* Animación de onda */
+  /* Contenedor principal */
+}
+.footer .footer-wave {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.footer .footer-wave svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+.footer .footer-wave svg path:first-child {
+  fill: #ff7f00; /* Onda naranja */
+  animation: wave 6s infinite linear;
+}
+.footer .footer-wave svg path:last-child {
+  fill: #333; /* Onda negra */
+}
+.footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer .footer-logo {
+  flex: 1;
+  text-align: left;
+}
+.footer .footer-logo a img {
+  width: 70px; /* Aumenta el tamaño del logo */
+  height: auto;
+  transition: transform 0.3s ease;
+  margin-top: 10px;
+}
+.footer .footer-logo a img:hover {
+  transform: scale(1.1);
+}
+.footer .footer-description {
+  flex: 2;
+  font-size: 1.5rem; /* Tamaño del texto */
+  font-weight: bold; /* Peso de la letra */
+  font-family: "Poppins", sans-serif; /* Fuente consistente */
+  font-style: italic;
+  text-align: center;
+  color: #fff; /* Blanco */
+}
+.footer .footer-socials {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.footer .footer-socials .social-link {
+  font-size: 1.3rem;
+  color: #ff7f00;
+  text-decoration: none;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.footer .footer-socials .social-link:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* Derechos reservados */
+.footer-rights {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+.footer-rights p {
+  margin: 0;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-content .footer-logo {
+    margin-bottom: 10px;
+  }
+  .footer-content .footer-socials {
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .footer-content .footer-description {
+    font-size: 1.2rem; /* Ajusta el tamaño en dispositivos móviles */
+    margin-bottom: 10px;
+  }
+  .footer-content .footer-rights {
+    font-size: 0.9rem; /* Ajusta el tamaño en dispositivos móviles */
+  }
+}
+#section1 {
+  background-image: url("../images/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+#section1 .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#section1 .overlay p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20px;
+  text-align: center;
+}
+#section1 .logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ff7f00;
+  transition: transform 0.3s ease;
+}
+#section1 .logo:hover {
+  transform: rotateY(360deg);
+}
+
+#home .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#home h1 {
+  font-size: 3rem;
+  color: #fff;
+  margin-top: 10px;
+}
+
+#home p {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* Botón del banner */
+.btn-lg {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #f97316;
+  border-radius: 5px;
+}
+
+.iframe-gallery {
+  height: 80vh; /* Incrementa la altura para mostrar las imágenes más grandes */
+  max-height: 100%; /* Asegura que no exceda el viewport */
+  width: 100%;
+  border: none; /* Elimina cualquier borde */
+}
+
+/* Estilo específico para el iframe de testimonios */
+.iframe-professor {
+  height: 45vh; /* Ocupa toda la altura de la pantalla */
+  max-height: 100%; /* Previene que el iframe exceda la altura del contenedor */
+  margin: 0; /* Elimina márgenes externos */
+  padding: 10px 0; /* Ajusta el espacio interno */
+}
+
+/* Estilo específico para el iframe de contacto aca el primero */
+.iframe-contact {
+  height: auto; /* Ocupa toda la altura de la pantalla */
+  max-height: 600px; /* Previene que el iframe exceda la altura del contenedor */
+  margin: 0; /* Elimina márgenes externos */
+  padding: 10px 0; /* Ajusta el espacio interno */
+}
+
+@media (max-width: 768px) {
+  .iframe-gallery {
+    height: 50vh;
+  }
+  .iframe-professor {
+    height: 30vh;
+  }
+  .iframe-contact {
+    height: 85vh;
+  }
+}
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0C0C0D; /* Fondo negro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#loader .ring {
+  --s: 25vmin; /* Tamaño del anillo */
+  --clr: #f1730b; /* Color principal del anillo */
+  --shd1: color-mix(in lab, var(--clr), #fff5);
+  --b1: 140% 145% 141% 166%;
+  --b2: 147% 200% 178% 150%;
+  border-radius: var(--b1);
+  border: 1px solid var(--clr);
+  position: fixed;
+  pointer-events: none;
+  z-index: -100;
+  width: var(--s);
+  height: var(--s);
+  top: calc(50% - var(--s) / 2);
+  left: calc(50% - var(--s) / 2);
+  box-sizing: border-box;
+  rotate: -55deg;
+  animation: brd1 1s infinite linear alternate, rot 30s infinite linear forwards;
+  filter: drop-shadow(0 0 1vmin var(--shd1)) drop-shadow(0.1em 0.1em 0.05em var(--shd1)) drop-shadow(-0.1em -0.1em 0.05em var(--shd1));
+}
+#loader .ring:before,
+#loader .ring:after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0;
+  border: inherit;
+}
+#loader .ring:before {
+  --b2: 185% 158% 160% 150%;
+  --b1: 147% 200% 178% 150%;
+  border-radius: var(--b1);
+  rotate: 55deg;
+  animation: brd1 1.5s infinite linear alternate, rot 30s infinite linear forwards reverse;
+  content: attr(data-text);
+  display: grid;
+  place-content: center;
+  align-content: center;
+  font-family: system-ui, sans-serif;
+  font-size: calc(var(--s) / 10);
+  text-shadow: 1px 1px 0.5em #000;
+}
+#loader .ring:after {
+  --b1: 185% 158% 160% 150%;
+  --b2: 140% 145% 141% 166%;
+  border-radius: var(--b1);
+  rotate: 35deg;
+  animation: brd1 2s infinite linear alternate, rot 40s infinite linear forwards reverse;
+}
+@keyframes brd1 {
+  to {
+    border-radius: var(--b2);
+  }
+}
+@keyframes rot {
+  to {
+    transform: rotatez(360deg);
+  }
+}
+
+.section2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
+  min-height: 50vh;
+  background-color: #0C0C0D; /* Fondo negro */
+}
+@media (max-width: 768px) {
+  .section2 {
+    display: grid;
+    /* Cambia el diseño a grid */
+    grid-template-columns: repeat(2, 1fr);
+    /* Dos columnas iguales */
+    gap: 15px;
+    /* Espacio entre elementos */
+    justify-items: center;
+    /* Centra los elementos en el grid */
+  }
+}
+
+.section2-item {
+  flex: 1 1 calc(25% - 30px); /* Ajusta el ancho de cada imagen */
+  max-width: 340px;
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.5s ease, transform 0.5s ease; /* Transición de flex y escala */
+  border-radius: 10px;
+  background-color: #1a1a1a;
+}
+.section2-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Asegura que la imagen se ajuste */
+}
+.section2-item:hover {
+  transform: scale(1.05);
+  /* Zoom suave */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+  /* Sombra al pasar el cursor */
+}
+@media (max-width: 768px) {
+  .section2-item {
+    max-width: 100%; /* Asegura que las imágenes ocupen el espacio disponible */
+    width: 140px; /* Establece un tamaño cuadrado */
+    height: 140px;
+  }
+}
+
+.section2-item img {
+  width: 100%; /* Imagen llena el contenedor */
+  height: 100%; /* Imagen cuadrada */
+  object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
+  transition: transform 0.5s ease-in-out;
+}
+
+.section2-item:hover {
+  flex: 2 1 0; /* Expande el elemento bajo el puntero */
+  transform: scale(1.05); /* Hace zoom en la imagen */
+}
+
+.section2-item:hover ~ .section2-item {
+  flex: 0.5 1 0; /* Reduce el tamaño de los elementos siguientes */
+  transform: scale(0.9); /* Hace un pequeño zoom out en los elementos siguientes */
+}
+
+.section2-item:hover + .section2-item {
+  flex: 0.5 1 0; /* Reduce el tamaño de los elementos anteriores */
+  transform: scale(0.9);
+}
+
+.section2-item .text-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #f97316;
+  color: #f9f6f6;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.testimonials-container {
+  display: flex;
+  justify-content: center; /* Centra las imágenes horizontalmente */
+  gap: 20px; /* Espacio entre tarjetas */
+  flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
+  padding: 0; /* Aumenta el espacio interno */
+  background-color: #0C0C0D; /* Fondo negro */
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Circular */
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial:hover img {
+  transform: scale(1.2); /* Amplía la imagen */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+.testimonial h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2em;
+  color: #fff; /* Texto blanco */
+}
+.testimonial p {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+/* Ajustes para el título h2 */
+h2 {
+  text-align: center; /* Centra el texto horizontalmente */
+  font-size: 2rem; /* Tamaño similar al texto del home */
+  font-weight: bold; /* Aplica el mismo peso que en el home */
+  font-family: "Poppins", sans-serif; /* Usa la misma tipografía */
+  margin: 0 auto 30px; /* Añade espacio debajo */
+  color: #fff; /* Usa el color blanco de la variable */
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+  text-transform: uppercase; /* Opcional: convierte el texto a mayúsculas */
+}
+
+@media (max-width: 768px) {
+  .testimonials-container {
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  .testimonial {
+    width: 120px; /* Tamaño reducido */
+    height: 100px;
+    perspective: 1000px; /* Efecto 3D */
+  }
+  .testimonial img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+  }
+  .testimonial:hover img {
+    transform: rotateY(180deg); /* Gira la imagen */
+  }
+  .testimonial::before {
+    content: attr(data-text); /* Inserta texto dinámico */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f97316;
+    color: #fff;
+    font-size: 0.8rem; /* Texto más pequeño */
+    text-align: center;
+    padding: 5px;
+    transform: rotateY(180deg); /* Oculta el texto inicialmente */
+    backface-visibility: hidden;
+    transition: transform 0.6s ease-in-out;
+  }
+  .testimonial:hover::before {
+    transform: rotateY(0); /* Muestra el texto al girar */
+  }
+  h3,
+  p {
+    display: none; /* Oculta el texto debajo de las imágenes */
+  }
+}
+/* Sección principal de contacto */
+.contact-section {
+  background-color: #0C0C0D;
+  /* Fondo negro */
+  min-height: auto;
+  /* Asegura que ocupe toda la altura de la pantalla */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* Cambia a columna para evitar problemas de superposición */
+  align-items: center;
+  justify-content: space-around;
+  /* Espacio entre formulario e imagen */
+  padding: 20px 0;
+  /* Reduce el padding */
+  color: #fff;
+  /* Letra blanca para todo el texto */
+  justify-content: space-between;
+  margin-bottom: 0;
+  /* Agrega espacio entre la sección y el footer */
+}
+
+/* Contenedor del contenido */
+.contact-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 2rem;
+  /* Agrega espacio entre la sección y el footer */
+}
+
+/* Formulario de contacto */
+.contact-form {
+  flex: 1 1 45%;
+  background-color: #ff7f00;
+  /* Fondo naranja para el formulario */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+.contact-form .form-group label {
+  display: block;
+  font-weight: bold;
+  color: #fff;
+  /* Texto blanco */
+  margin-bottom: -28px;
+}
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  color: #0C0C0D;
+  /* Texto oscuro en el campo para buen contraste */
+  background-color: #fff;
+  /* Fondo blanco para los campos */
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+.contact-form .form-group input::placeholder,
+.contact-form .form-group textarea::placeholder {
+  color: rgba(12, 12, 13, 0.7);
+  /* Texto del placeholder ligeramente más claro */
+}
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+  border-color: #ff7f00;
+  /* Borde naranja al enfocar */
+}
+.contact-form .submit-button {
+  width: 100%;
+  /* Botón ocupa todo el ancho del contenedor */
+  padding: 15px;
+  /* Espaciado interno para un diseño más robusto */
+  background-color: #000;
+  /* Fondo naranja consistente con la estética */
+  color: #fff;
+  /* Texto blanco */
+  font-weight: bold;
+  /* Texto en negrita */
+  font-size: 1rem;
+  /* Tamaño del texto */
+  border: none;
+  /* Elimina el borde por defecto */
+  border-radius: 6px;
+  /* Bordes redondeados */
+  cursor: pointer;
+  /* Cursor de puntero al pasar sobre el botón */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  /* Sombra sutil */
+  transition: all 0.3s ease;
+  /* Transición suave para los efectos */
+}
+.contact-form .submit-button:hover {
+  background-color: #e36d00;
+  /* Fondo naranja más oscuro al pasar el cursor */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  /* Sombra más profunda */
+}
+.contact-form .submit-button:active {
+  background-color: #cc6200;
+  /* Fondo más oscuro al hacer clic */
+  transform: scale(0.98);
+  /* Efecto de clic visual */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  /* Sombra más comprimida */
+}
+
+/* Imagen con texto */
+.contact-image {
+  flex: 1 1 50%;
+  /* Tamaño del contenedor */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centra el contenido horizontalmente */
+  justify-content: flex-start;
+  /* Alinea el contenido verticalmente */
+}
+.contact-image .image-text {
+  position: absolute;
+  top: 30px;
+  /* Ajusta la posición del texto */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  /* Alinea el texto con el inicio del formulario */
+}
+.contact-image img {
+  width: 600px;
+  max-width: 500px;
+  /* Aumenta el tamaño máximo */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  /* Baja un poco la imagen */
+}
+
+/* Ajustes Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    /* Cambia a diseño en columna */
+    gap: 15px;
+    margin-bottom: 1rem;
+  }
+  .contact-form {
+    flex: 1 1 100%;
+  }
+  /* Ocultar la imagen en pantallas pequeñas */
+  .contact-image {
+    display: none;
+    /* Oculta la imagen en pantallas pequeñas */
+  }
+  .image-text {
+    position: relative;
+    top: 0;
+  }
+}
+.carousel {
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+.carousel img {
+  width: 100%;
+  /*height: auto;  Mantén la proporción */
+  /*max-height: 100vh; /* Haz que la imagen ocupe hasta el 70% del viewport height */
+  object-fit: contain;
+  /*Asegúrate de que la imagen cubra el espacio sin deformarse */
+  border-radius: 10px;
+  /* Opcional para estética */
+}
+.carousel .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.carousel .carousel-control-prev-icon,
+.carousel .carousel-control-next-icon {
+  background-color: transparent;
+  /* Sin fondo */
+  border: 2px solid #f97316;
+  /* Borde naranja */
+  border-radius: 50%;
+  /* Hace que sea circular */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.carousel .carousel-control-prev-icon:hover,
+.carousel .carousel-control-next-icon:hover {
+  background-color: #e36d00;
+  /* Naranja más oscuro al hover */
+  transform: scale(1.1);
+  /* Zoom suave */
+}
+
+.page-section {
+  min-height: 100vh;
+  /* Ocupa al menos toda la pantalla */
+  display: flex;
+  align-items: center;
+  /* Centra el contenido verticalmente */
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .page-section {
+    min-height: auto;
+    /* Elimina altura fija en móviles */
+    padding: 20px 0;
+    /* Agrega un pequeño padding */
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .carousel {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .carousel img {
+    max-height: 50vh;
+    /* Reduce la altura máxima en móviles */
+    object-fit: contain;
+    /* Ajusta la imagen para que no se recorte en móviles */
+  }
+  .carousel-caption {
+    font-size: 1rem;
+    /* Texto más pequeño */
+  }
+}
+@media (min-width: 1024px) {
+  .carousel img {
+    max-height: 80vh;
+    /* Reduce un poco la altura para que se ajusten mejor */
+  }
+}
+/* Burbuja de WhatsApp */
+.whatsapp-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 24px;
+  z-index: 1000;
+  cursor: pointer;
+  outline: none; /* Evita líneas de enfoque */
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-bubble:hover {
+  transform: scale(1.1);
+}
+
+/* Ventana emergente */
+.chat-popup {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  z-index: 1001;
+}
+
+.chat-header {
+  background-color: #25d366;
+  color: #fff;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header .close-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.chat-body {
+  padding: 15px;
+  text-align: center;
+  color: #333;
+}
+
+.chat-body .start-chat-btn {
+  background-color: #25d366;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.chat-body .start-chat-btn:hover {
+  background-color: #1eb960;
+}
+
+/*# sourceMappingURL=styles.css.map */

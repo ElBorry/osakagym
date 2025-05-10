@@ -1,0 +1,191 @@
+// home.scss
+@use 'variables';
+
+
+#section1 {
+    background-image: url('../images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        p {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+    
+
+    .logo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #ff7f00;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: rotateY(360deg);
+        }
+    }
+}
+
+#home .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    color: variables.$white-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home h1 {
+    font-size: 3rem;
+    color: variables.$white-color;
+    margin-top: 10px;
+}
+
+#home p {
+    font-size: 1.5rem;
+    color: variables.$white-color;
+    margin-bottom: 20px;
+}
+
+/* Botón del banner */
+.btn-lg {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: variables.$white-color;
+    background-color: variables.$primary-color;
+    border-radius: 5px;
+}
+
+.iframe-gallery {
+    height: 80vh; /* Incrementa la altura para mostrar las imágenes más grandes */
+    max-height: 100%; /* Asegura que no exceda el viewport */
+    width: 100%;
+    border: none; /* Elimina cualquier borde */
+}
+
+/* Estilo específico para el iframe de testimonios */
+.iframe-professor {
+    height: 45vh;    /* Ocupa toda la altura de la pantalla */
+    max-height: 100%;    /* Previene que el iframe exceda la altura del contenedor */
+    margin: 0; /* Elimina márgenes externos */
+    padding: 10px 0; /* Ajusta el espacio interno */
+}
+
+/* Estilo específico para el iframe de contacto aca el primero */
+.iframe-contact { 
+    height: auto;    /* Ocupa toda la altura de la pantalla */
+    max-height: 600px;    /* Previene que el iframe exceda la altura del contenedor */
+    margin: 0; /* Elimina márgenes externos */
+    padding: 10px 0; /* Ajusta el espacio interno */
+}
+
+@media (max-width: 768px) {
+    .iframe-gallery {
+        height: 50vh;
+    }
+
+    .iframe-professor { 
+        height: 30vh;
+        }
+    .iframe-contact { 
+        height: 85vh;
+        }
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0C0C0D; /* Fondo negro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+    .ring {
+        --s: 25vmin; /* Tamaño del anillo */
+        --clr: #f1730b; /* Color principal del anillo */
+        --shd1: color-mix(in lab, var(--clr), #fff5);
+        --b1: 140% 145% 141% 166%;
+        --b2: 147% 200% 178% 150%;
+        border-radius: var(--b1);
+        border: 1px solid var(--clr);
+        position: fixed;
+        pointer-events: none;
+        z-index: -100;
+        width: var(--s);
+        height: var(--s);
+        top: calc(50% - var(--s) / 2);
+        left: calc(50% - var(--s) / 2);
+        box-sizing: border-box;
+        rotate: -55deg;
+        animation: brd1 1s infinite linear alternate, rot 30s infinite linear forwards;
+        filter: drop-shadow(0 0 1vmin var(--shd1)) drop-shadow(0.1em 0.1em 0.05em var(--shd1)) drop-shadow(-0.1em -0.1em 0.05em var(--shd1));
+    }
+
+    .ring:before,
+    .ring:after {
+        content: "";
+        box-sizing: border-box;
+        position: absolute;
+        inset: 0;
+        border: inherit;
+    }
+
+    .ring:before {
+        --b2: 185% 158% 160% 150%;
+        --b1: 147% 200% 178% 150%;
+        border-radius: var(--b1);
+        rotate: 55deg;
+        animation: brd1 1.5s infinite linear alternate, rot 30s infinite linear forwards reverse;
+        content: attr(data-text);
+        display: grid;
+        place-content: center;
+        align-content: center;
+        font-family: system-ui, sans-serif;
+        font-size: calc(var(--s) / 10);
+        text-shadow: 1px 1px 0.5em #000;
+    }
+
+    .ring:after {
+        --b1: 185% 158% 160% 150%;
+        --b2: 140% 145% 141% 166%;
+        border-radius: var(--b1);
+        rotate: 35deg;
+        animation: brd1 2s infinite linear alternate, rot 40s infinite linear forwards reverse;
+    }
+
+    @keyframes brd1 {
+        to {
+            border-radius: var(--b2);
+        }
+    }
+
+    @keyframes rot {
+        to {
+            transform: rotatez(360deg);
+        }
+    }
+}

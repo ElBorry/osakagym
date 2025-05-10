@@ -1,0 +1,187 @@
+/* Sección principal de contacto */
+.contact-section {
+    background-color: #0C0C0D;
+    /* Fondo negro */
+    min-height: auto;
+    /* Asegura que ocupe toda la altura de la pantalla */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /* Cambia a columna para evitar problemas de superposición */
+    align-items: center;
+    justify-content: space-around;
+    /* Espacio entre formulario e imagen */
+    padding: 20px 0;
+    /* Reduce el padding */
+    color: #fff;
+    /* Letra blanca para todo el texto */
+    justify-content: space-between;
+    margin-bottom: 0;
+    /* Agrega espacio entre la sección y el footer */
+}
+
+/* Contenedor del contenido */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 2rem;
+    /* Agrega espacio entre la sección y el footer */
+}
+
+/* Formulario de contacto */
+.contact-form {
+    flex: 1 1 45%;
+    background-color: #ff7f00;
+    /* Fondo naranja para el formulario */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .form-group {
+        margin-bottom: 20px;
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #fff;
+            /* Texto blanco */
+            margin-bottom: -28px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            outline: none;
+            font-size: 1rem;
+            color: #0C0C0D;
+            /* Texto oscuro en el campo para buen contraste */
+            background-color: #fff;
+            /* Fondo blanco para los campos */
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+            transition: box-shadow 0.3s ease;
+
+            &::placeholder {
+                color: rgba(12, 12, 13, 0.7);
+                /* Texto del placeholder ligeramente más claro */
+            }
+
+            &:focus {
+                box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+                border-color: #ff7f00;
+                /* Borde naranja al enfocar */
+            }
+        }
+    }
+
+    .submit-button {
+        width: 100%;
+        /* Botón ocupa todo el ancho del contenedor */
+        padding: 15px;
+        /* Espaciado interno para un diseño más robusto */
+        background-color: #000;
+        /* Fondo naranja consistente con la estética */
+        color: #fff;
+        /* Texto blanco */
+        font-weight: bold;
+        /* Texto en negrita */
+        font-size: 1rem;
+        /* Tamaño del texto */
+        border: none;
+        /* Elimina el borde por defecto */
+        border-radius: 6px;
+        /* Bordes redondeados */
+        cursor: pointer;
+        /* Cursor de puntero al pasar sobre el botón */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        /* Sombra sutil */
+        transition: all 0.3s ease;
+        /* Transición suave para los efectos */
+
+        &:hover {
+            background-color: #e36d00;
+            /* Fondo naranja más oscuro al pasar el cursor */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+            /* Sombra más profunda */
+        }
+
+        &:active {
+            background-color: #cc6200;
+            /* Fondo más oscuro al hacer clic */
+            transform: scale(0.98);
+            /* Efecto de clic visual */
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+            /* Sombra más comprimida */
+        }
+    }
+}
+
+/* Imagen con texto */
+.contact-image {
+    flex: 1 1 50%;
+    /* Tamaño del contenedor */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra el contenido horizontalmente */
+    justify-content: flex-start;
+    /* Alinea el contenido verticalmente */
+
+
+    .image-text {
+        position: absolute;
+        top: 30px;
+        /* Ajusta la posición del texto */
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        align-self: flex-start;
+        /* Alinea el texto con el inicio del formulario */
+    }
+
+    img {
+        width: 600px;
+        max-width: 500px;
+        /* Aumenta el tamaño máximo */
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 100px;
+        /* Baja un poco la imagen */
+    }
+}
+
+/* Ajustes Responsive */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        /* Cambia a diseño en columna */
+        gap: 15px;
+        margin-bottom: 1rem;
+    }
+
+    .contact-form {
+        flex: 1 1 100%;
+    }
+
+    /* Ocultar la imagen en pantallas pequeñas */
+    .contact-image {
+        display: none;
+        /* Oculta la imagen en pantallas pequeñas */
+    }
+
+    .image-text {
+        position: relative;
+        top: 0;
+    }
+}

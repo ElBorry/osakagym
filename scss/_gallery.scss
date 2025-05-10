@@ -1,0 +1,89 @@
+@use 'variables';
+
+.section2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
+  min-height: 50vh;
+  background-color: #0C0C0D; /* Fondo negro */
+
+  @media (max-width: 768px) {
+    display: grid;
+    /* Cambia el diseño a grid */
+    grid-template-columns: repeat(2, 1fr);
+    /* Dos columnas iguales */
+    gap: 15px;
+    /* Espacio entre elementos */
+    justify-items: center;
+    /* Centra los elementos en el grid */
+  }
+}
+
+.section2-item {
+  flex: 1 1 calc(25% - 30px);  /* Ajusta el ancho de cada imagen */
+  max-width: 340px;
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.5s ease, transform 0.5s ease;  /* Transición de flex y escala */
+  border-radius: 10px;
+  background-color: #1a1a1a;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;    /* Asegura que la imagen se ajuste */
+    
+  }
+
+  
+
+  &:hover {
+    transform: scale(1.05);
+    /* Zoom suave */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+    /* Sombra al pasar el cursor */
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;    /* Asegura que las imágenes ocupen el espacio disponible */
+    width: 140px;     /* Establece un tamaño cuadrado */
+    height: 140px;
+  }
+}
+
+.section2-item img {
+  width: 100%;  /* Imagen llena el contenedor */
+  height: 100%;  /* Imagen cuadrada */
+  object-fit: cover;  /* Asegura que la imagen se ajuste sin distorsionarse */
+  transition: transform 0.5s ease-in-out;
+}
+
+.section2-item:hover {
+  flex: 2 1 0;  /* Expande el elemento bajo el puntero */
+  transform: scale(1.05);  /* Hace zoom en la imagen */
+}
+
+.section2-item:hover~.section2-item {
+  flex: 0.5 1 0;  /* Reduce el tamaño de los elementos siguientes */
+  transform: scale(0.9);  /* Hace un pequeño zoom out en los elementos siguientes */
+}
+
+.section2-item:hover+.section2-item {
+  flex: 0.5 1 0;  /* Reduce el tamaño de los elementos anteriores */
+  transform: scale(0.9);
+}
+
+.section2-item .text-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: variables.$primary-color;
+  color: #f9f6f6;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 0.9em;
+}

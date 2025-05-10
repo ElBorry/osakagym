@@ -1,0 +1,49 @@
+/* Box Model */
+@use 'variables';
+
+html, body {
+    font-family: "Poppins", sans-serif;
+    color: variables.$white-color; /* Prefijo agregado */
+    background-color: #0C0C0D;
+    vertical-align: baseline;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: clamp(16px, 0.938vw, 22px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el contenido siempre ocupa al menos toda la pantalla */
+    
+}
+
+
+/* Contenedor de Grid */
+.grid-contenedor-padre {
+    display: grid;
+    flex: 1; /* Asegura que el contenido principal ocupe el espacio disponible */
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    grid-gap: variables.$padding-main; /* Prefijo agregado */
+}
+
+.grid-item-hijo {
+    padding: variables.$padding-main; /* Prefijo agregado */
+    margin-bottom: variables.$padding-main; /* Prefijo agregado */
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+    .grid-contenedor-padre {
+        grid-template-areas:
+            "header"
+            "main"
+            "nav"
+            "footer";
+    }
+}

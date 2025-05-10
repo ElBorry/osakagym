@@ -1,0 +1,28 @@
+@mixin flex-center($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer {
+    @include flex-center(column);
+    padding: 10px;
+  }
+  
+  .container-base {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    @extend .container-base;
+    background-color: #0c0d0c;
+  }
+  
+  .footer-content {
+    @extend .container-base;
+    display: flex;
+    justify-content: space-between;
+  }

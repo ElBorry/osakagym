@@ -1,0 +1,146 @@
+@use 'variables';
+
+.footer {
+    background-color: variables.$secondary-color; /* Fondo negro */
+    color: variables.$white-color; /* Usa la variable de color blanco */
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0; /* Aumenta ligeramente el padding */
+    position: relative;
+    font-size: 0.9rem; /* Tamaño de letra similar al texto del home */
+    font-weight: bold; /* Aplica el mismo peso que el texto del home */
+    font-family: "Poppins", sans-serif; /* Asegúrate de usar la misma fuente */
+    box-sizing: border-box;
+
+    /* Animación de onda */
+    .footer-wave {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+
+        svg {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 30px;
+
+            path:first-child {
+                fill: #ff7f00; /* Onda naranja */
+                animation: wave 6s infinite linear;
+            }
+
+            path:last-child {
+                fill: variables.$secondary-color; /* Onda negra */
+            }
+        }
+    }
+
+    /* Contenedor principal */
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; // Permite mejor ajuste en móviles
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+        .footer-logo {
+            flex: 1;
+            text-align: left;
+
+            a img {
+                width: 70px; /* Aumenta el tamaño del logo */
+                height: auto;
+                transition: transform 0.3s ease;
+                margin-top: 10px;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .footer-description {
+            flex: 2;
+            font-size: 1.5rem; /* Tamaño del texto */
+            font-weight: bold; /* Peso de la letra */
+            font-family: "Poppins", sans-serif; /* Fuente consistente */
+            font-style: italic;
+            text-align: center;
+            color: variables.$white-color; /* Blanco */
+        }
+
+        .footer-socials {
+            flex: 1;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+            .social-link {
+                font-size: 1.3rem;
+                color: #ff7f00;
+                text-decoration: none;
+                transition: transform 0.3s ease, color 0.3s ease;
+
+                &:hover {
+                    color: #fff;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    /* Derechos reservados */
+    .footer-rights {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: "Poppins", sans-serif;
+        color: variables.$white-color;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    @keyframes wave {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            text-align: center;
+
+            .footer-logo {
+                margin-bottom: 10px;
+            }
+
+            .footer-socials {
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .footer-description {
+                font-size: 1.2rem; /* Ajusta el tamaño en dispositivos móviles */
+                margin-bottom: 10px;
+            }
+
+            .footer-rights {
+                font-size: 0.9rem; /* Ajusta el tamaño en dispositivos móviles */
+            }
+        }
+    }
+
